@@ -27,9 +27,9 @@ export default function App() {
             <div style={{ transform: "translate3d(65vw, 192vh, 0)", fontSize: "2rem" }}>
               PMNDRS Pendant lamp
               <br />
-              bronze, 38 cm
+              éjkék, fehér, bronz
               <br />
-              CHF 59.95
+              HUF 30.000
               <br />
             </div>
           </Scroll>
@@ -78,7 +78,7 @@ function Lens({
     // The following code will render that scene into a buffer, whose texture will then be fed into
     // a plane spanning the full screen and the lens transmission material
     state.gl.setRenderTarget(buffer);
-    state.gl.setClearColor("#d8d7d7");
+    state.gl.setClearColor("#C7CDC6" /* "#d8d7d7" */);
     state.gl.render(scene, state.camera);
     state.gl.setRenderTarget(null);
   });
