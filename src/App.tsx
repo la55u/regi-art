@@ -134,7 +134,7 @@ function Images() {
       <Image position={[2, 0, 3]} scale={3} url="/img1.jpg" />
       <Image position={[-2.05, -height, 6]} scale={[1, 1]} url="/img4.jpg" />
       <Image position={[-0.6, -height, 9]} scale={[1, 1]} url="/img8.jpg" />
-      <Image position={[0.75, -height, 10.5]} scale={1.5} url="/trip4.jpg" />
+      <Image position={[0.75, -height, 10.5]} scale={1.5} url="/img6.jpg" />
       <Image position={[0, -height * 1.5, 7.5]} scale={[2, 3]} url="/img3.jpg" />
       <Image
         position={[0, -height * 2 - height / 4, 0]}
