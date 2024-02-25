@@ -152,18 +152,19 @@ function Typography() {
   return (
     <>
       <Text
-        children="to"
+        children="egyedi"
         anchorX="left"
         position={[-width / 2.5, -height / 10, 12]}
+        fontSize={0.6}
         {...shared}
       />
       <Text
-        children="be"
+        children="dekor"
         anchorX="right"
         position={[width / 2.5, -height * 2, 12]}
         {...shared}
       />
-      <Text children="home" position={[0, -height * 4.624, 12]} {...shared} />
+      <Text children="neked" position={[0, -height * 4.624, 12]} {...shared} />
     </>
   );
 }
