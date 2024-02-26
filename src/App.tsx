@@ -1,6 +1,13 @@
 import * as THREE from "three";
 import { ReactNode, useRef, useState } from "react";
-import { Canvas, createPortal, useFrame, useThree } from "@react-three/fiber";
+import {
+  Canvas,
+  Object3DNode,
+  createPortal,
+  extend,
+  useFrame,
+  useThree,
+} from "@react-three/fiber";
 import {
   useFBO,
   useGLTF,
@@ -12,7 +19,19 @@ import {
   ScrollControls,
   MeshTransmissionMaterial,
 } from "@react-three/drei";
-import { easing } from "maath";
+import { easing, geometry } from "maath";
+import "./BentPlaneGeometry";
+
+extend({ RoundedPlaneGeometry: geometry.RoundedPlaneGeometry });
+
+declare module "@react-three/fiber" {
+  interface ThreeElements {
+    roundedPlaneGeometry: Object3DNode<
+      geometry.RoundedPlaneGeometry,
+      typeof geometry.RoundedPlaneGeometry
+    >;
+  }
+}
 
 export default function App() {
   return (
@@ -78,7 +97,7 @@ function Lens({
     // The following code will render that scene into a buffer, whose texture will then be fed into
     // a plane spanning the full screen and the lens transmission material
     state.gl.setRenderTarget(buffer);
-    state.gl.setClearColor("#C7CDC6" /* "#d8d7d7" */);
+    state.gl.setClearColor("#c4c9c8" /* "#d8d7d7" */);
     state.gl.render(scene, state.camera);
     state.gl.setRenderTarget(null);
   });
@@ -131,11 +150,15 @@ function Images() {
   return (
     <group ref={group}>
       <Image position={[-width / 4, 0, 0]} scale={[width / 2, height]} url="/img5.jpg" />
-      <Image position={[2, 0, 3]} scale={3} url="/img1.jpg" />
+      <Image position={[2, 0, 3]} scale={3} url="/img1.jpg">
+        <roundedPlaneGeometry args={[1, 1, 0.1, 16]} />
+      </Image>
       <Image position={[-2.05, -height, 6]} scale={[1, 1]} url="/img4.jpg" />
       <Image position={[-0.6, -height, 9]} scale={[1, 1]} url="/img8.jpg" />
       <Image position={[0.75, -height, 10.5]} scale={1.5} url="/img6.jpg" />
-      <Image position={[0, -height * 1.5, 7.5]} scale={[2, 3]} url="/img3.jpg" />
+      <Image position={[0, -height * 1.5, 7.5]} scale={[1, 1]} url="/img3.jpg">
+        <roundedPlaneGeometry args={[2, 3, 0.05, 16]} />
+      </Image>
       <Image
         position={[0, -height * 2 - height / 4, 0]}
         scale={[width, height / 1.1]}
