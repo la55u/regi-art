@@ -25,7 +25,7 @@ export default function App() {
           </Scroll>
           <Scroll html>
             <div style={{ transform: "translate3d(65vw, 192vh, 0)", fontSize: "2rem" }}>
-              PMNDRS Pendant lamp
+              Festmény, 140x80
               <br />
               éjkék, fehér, bronz
               <br />
