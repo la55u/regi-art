@@ -20,7 +20,6 @@ import {
   MeshTransmissionMaterial,
 } from "@react-three/drei";
 import { easing, geometry } from "maath";
-import "./BentPlaneGeometry";
 
 extend({ RoundedPlaneGeometry: geometry.RoundedPlaneGeometry });
 
